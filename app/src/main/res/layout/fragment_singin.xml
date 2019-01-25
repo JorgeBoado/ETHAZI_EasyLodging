@@ -2,7 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/singin"
+    android:id="@+id/singin_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/darkBlue"
@@ -120,17 +120,16 @@
 
     <CheckBox
         android:id="@+id/signin_chechbox"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="128dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
+        android:buttonTintMode="@color/black"
         android:text="I agree to the T &amp; C"
         android:textAlignment="viewStart"
         android:textColor="@color/grey"
-        android:buttonTintMode="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signin_repeat_password" />
 

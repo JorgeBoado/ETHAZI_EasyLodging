@@ -1,8 +1,11 @@
-package easylodging.com.ethazi_easylodging;
+package easylodging.com.ethazi_easylodging.Main;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,8 +16,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import easylodging.com.ethazi_easylodging.R;
+
 public class NavigationDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
+    public static Intent newIntent(Context context) {
+        Intent intent = new Intent();
+
+        return intent;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +43,24 @@ public class NavigationDrawer extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        if(findViewById(R.id.grid_fragment)!=null){
+            if(savedInstanceState !=null){
+                return;
+
+            }
+            FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
+            GridView mGridView = new GridView();
+            fragmentTransaction.add(R.id.grid_fragment, mGridView, null);
+            fragmentTransaction.commit();
+        }
     }
 
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
+            finish();
         } else {
             super.onBackPressed();
         }
