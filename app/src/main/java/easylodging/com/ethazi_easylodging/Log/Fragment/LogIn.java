@@ -43,7 +43,7 @@ public class LogIn extends Fragment {
                 Fragment fragment = new SignIn();
                 //TODO en la transicion se queda el boton de LogIn sobrepuesto en la pantalla de SignIn
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.disallowAddToBackStack();
+                transaction.addToBackStack(null);
                 transaction.replace(R.id.log_fragment, fragment);
                 transaction.commit();
             }

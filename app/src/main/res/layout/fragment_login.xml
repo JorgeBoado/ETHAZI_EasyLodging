@@ -105,11 +105,10 @@
         android:id="@+id/login_btn"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/background_button"
-        android:text="Log In"
+        android:text="Log in"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -127,8 +126,7 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_btn"
-        app:layout_constraintVertical_bias="0.052" />
+        app:layout_constraintTop_toBottomOf="@+id/login_btn" />
 
     <TextView
         android:id="@+id/login_signup"
@@ -146,7 +144,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/lable"
-        app:layout_constraintTop_toBottomOf="@+id/login_btn"
-        app:layout_constraintVertical_bias="0.048" />
+        app:layout_constraintTop_toBottomOf="@+id/login_btn" />
 
 </android.support.constraint.ConstraintLayout>

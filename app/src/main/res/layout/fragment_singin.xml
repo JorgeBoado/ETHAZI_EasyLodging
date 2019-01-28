@@ -147,7 +147,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signin_chechbox"
-        app:layout_constraintVertical_bias="0.26999998" />
+        app:layout_constraintTop_toBottomOf="@+id/signin_chechbox" />
 
 </android.support.constraint.ConstraintLayout>
