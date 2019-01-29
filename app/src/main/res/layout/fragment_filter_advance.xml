@@ -1,6 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/advance_filter_fragment"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <SeekBar
+        android:id="@+id/advance_filter_seekbar_fragment"
+        android:layout_width="209dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toEndOf="@+id/advance_filter_capacity_textview"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/advance_filter_capacity_textview"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Capacity"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/advance_filter_capacity_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="100"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/advance_filter_seekbar_fragment"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/advance_filter_type_textview"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="64dp"
+        android:text="Type"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/advance_filter_capacity_textview" />
+
+    <CheckBox
+        android:id="@+id/advance_filter_agroturismo_checkbox"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Agroturismo"
+        app:layout_constraintStart_toEndOf="@+id/advance_filter_type_textview"
+        app:layout_constraintTop_toTopOf="@+id/advance_filter_type_textview" />
+
+    <CheckBox
+        android:id="@+id/advance_filter_albergue_checkbox"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="Albergue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toEndOf="@+id/advance_filter_agroturismo_checkbox"
+        app:layout_constraintTop_toTopOf="@+id/advance_filter_agroturismo_checkbox" />
+
+    <CheckBox
+        android:id="@+id/advance_filter_camping_checkbox"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="24dp"
+        android:text="Camping"
+        app:layout_constraintEnd_toStartOf="@+id/advance_filter_casarural_checkbox"
+        app:layout_constraintTop_toBottomOf="@+id/advance_filter_agroturismo_checkbox" />
+
+    <CheckBox
+        android:id="@+id/advance_filter_casarural_checkbox"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="20dp"
+        android:text="Casa Rural"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/advance_filter_albergue_checkbox" />
+
+    <TextView
+        android:id="@+id/advance_filter_territory_textview"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="124dp"
+        android:text="Territory"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/advance_filter_type_textview" />
+
+    <CheckBox
+        android:id="@+id/advance_filter_vizcaya_checkbox"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Vizcaya"
+        app:layout_constraintEnd_toStartOf="@+id/advance_filter_alava_checkbox"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/advance_filter_territory_textview"
+        app:layout_constraintTop_toTopOf="@+id/advance_filter_territory_textview" />
+
+    <CheckBox
+        android:id="@+id/advance_filter_guipozcoa_checkbox"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="164dp"
+        android:text="guipuzcoa"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/advance_filter_vizcaya_checkbox" />
+
+    <CheckBox
+        android:id="@+id/advance_filter_alava_checkbox"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="Alava"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/advance_filter_vizcaya_checkbox" />
 </android.support.constraint.ConstraintLayout>
