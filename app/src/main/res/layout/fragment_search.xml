@@ -7,14 +7,14 @@
     android:orientation="vertical">
 
     <EditText
-        android:id="@+id/search_button_textview"
+        android:id="@+id/search_word_edittext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
-        android:hint="Text to search"
+        android:hint="@string/search_edittext_text"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,11 +23,11 @@
         android:id="@+id/search_advance_expandable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="10dp" />
     <Button
         android:id="@+id/search_search_button"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="Buscar"
-        />x
+        android:text="@string/search_button_text"
+        />
 </LinearLayout>

@@ -12,15 +12,18 @@
         <activity
             android:name=".SplashScreen"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Log.Activity.LogInManager" />
-        <activity android:name=".Main.NavigationDrawer" />
+        <activity android:name=".Log.Activity.LogInManager"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Main.NavigationDrawer"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
