@@ -13,4 +13,22 @@
     <string name="signin_button_text">Registrarme</string>
     <string name="search_edittext_text">Texto a buscar</string>
     <string name="search_button_text">Buscar</string>
+    <string name="navigation_drawer_bookings_text">Mis reservas</string>
+    <string name="navigation_drawer_map_text">Mapa</string>
+    <string name="navigation_drawer_mode_text">Modo oscuro</string>
+    <string name="navigation_drawer_info_text">Informacion</string>
+    <string name="navigation_drawer_language_text">Lenguaje</string>
+    <string name="navigation_drawer_logout_text">Cerrar sesion</string>
+    <string name="booking_filter_filterby_text">Filtrar por:</string>
+    <string name="booking_filter_type_text">Tipo:</string>
+    <string name="booking_filter_status_text">Estado:</string>
+    <string name="advance_filter_capacity_text">Capacidad</string>
+    <string name="advance_filter_type_text">Tipo</string>
+    <string name="advance_filter_agrotourism_text">Agroturismo</string>
+    <string name="advance_filter_hostal_text">Albergue</string>
+    <string name="advance_filter_camping_text">Camping</string>
+    <string name="advance_filter_cottage_text">Casa Rural</string>
+    <string name="advance_filter_territory_text">Territorio</string>
+    <string name="advance_filter_distance_textview">Distancia</string>
+    <string name="content_main_test">Prueba!!</string>
 </resources>
