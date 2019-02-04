@@ -46,7 +46,7 @@ public class LogInManager extends AppCompatActivity {
 
     private void launchSignIn() {
         Log.d(TAG_SIGNIN, "Lanzando SignIn");
-        Intent intent = new Intent(this, SignIn.class);
+        Intent intent = new Intent(LogInManager.this, SignInManager.class);
         startActivity(intent);
     }
 

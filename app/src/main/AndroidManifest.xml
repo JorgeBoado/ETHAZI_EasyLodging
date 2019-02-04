@@ -24,6 +24,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".Main.NavigationDrawer"
             android:screenOrientation="portrait"/>
+        <activity android:name=".Log.Activity.SignInManager"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
