@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import easylodging.com.ethazi_easylodging.Log.Fragment.SignIn;
 import easylodging.com.ethazi_easylodging.Main.NavigationDrawer;
 import easylodging.com.ethazi_easylodging.R;
 
