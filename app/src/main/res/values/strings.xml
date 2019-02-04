@@ -42,7 +42,12 @@
     <string name="not_accepted">You need to accept the T and C!</string>
     <string name="not_filled">You need to fill every field</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="tc_title_text">Terms and Conditions</string>
+    <string name="tc_message_text">We have 5 on the proyect</string>
+    <string name="general_error" translatable="false">ERROR</string>
+    <string name="error_message_text">Accept T&amp;C</string>
+    <string name="navigation_drawer_search_text">Search</string>
 
     <!-- TODO: Remove or change this placeholder text -->
 

@@ -34,4 +34,8 @@
     <string name="dialog_logoff">Hay que cambiar</string>
     <string name="not_accepted">Tienes que aceptar los T y C!</string>
     <string name="not_filled">Tienes que rellenar todos los campos</string>
+    <string name="tc_title_text">Terminos y condiciones</string>
+    <string name="tc_message_text">Tenemos un 5 el proyecto</string>
+    <string name="error_message_text">Acepta los TyC</string>
+    <string name="navigation_drawer_search_text">Buscar</string>
 </resources>

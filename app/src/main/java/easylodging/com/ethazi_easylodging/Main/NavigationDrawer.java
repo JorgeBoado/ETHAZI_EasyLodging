@@ -13,7 +13,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import easylodging.com.ethazi_easylodging.Log.Activity.LogInManager;
 import easylodging.com.ethazi_easylodging.Main.Fragment.GridView;
+import easylodging.com.ethazi_easylodging.Main.Fragment.Search;
 import easylodging.com.ethazi_easylodging.R;
 
 public class NavigationDrawer extends AppCompatActivity
@@ -41,12 +43,11 @@ public class NavigationDrawer extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        if(findViewById(R.id.grid_fragment)!=null){
-            if(savedInstanceState !=null){
+        if (findViewById(R.id.grid_fragment) != null) {
+            if (savedInstanceState != null) {
                 return;
-
             }
-            FragmentTransaction fragmentTransaction= getSupportFragmentManager().beginTransaction();
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             GridView mGridView = new GridView();
             fragmentTransaction.add(R.id.grid_fragment, mGridView, null);
             fragmentTransaction.commit();
@@ -93,14 +94,21 @@ public class NavigationDrawer extends AppCompatActivity
 
         if (id == R.id.nav_bookings) {
 
+        } else if (id == R.id.nav_search) {
+            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            Search mSearch = new Search();
+            fragmentTransaction.add(R.id.search_fragment, mSearch, null);
+            fragmentTransaction.commit();
         } else if (id == R.id.nav_map) {
-
+            //TODO Jon, mete aqui tu intent para le mapa.
         } else if (id == R.id.nav_dark_mode) {
 
         } else if (id == R.id.nav_info) {
 
         } else if (id == R.id.nav_logout) {
-
+            Intent intent_log = new Intent(this, LogInManager.class);
+            startActivity(intent_log);
+            finishAndRemoveTask();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
