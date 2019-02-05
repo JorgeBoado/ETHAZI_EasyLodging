@@ -47,7 +47,6 @@
     <string name="tc_message_text">We have 5 on the proyect</string>
     <string name="general_error" translatable="false">ERROR</string>
     <string name="navigation_drawer_search_text">Search</string>
-    <string name="not_accepted"></string>
     <!-- TODO: Remove or change this placeholder text -->
 
 </resources>
