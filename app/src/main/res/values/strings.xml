@@ -50,6 +50,8 @@
     <string name="action_booking">Book</string>
     <string name="title_activity_lodging_details">Details</string>
     <string name="not_accepted">Not Accepted</string>
+    <string name="nav_grid_item" translatable="false">Grid</string>
+    <string name="dialog_about">This is the about dialog.</string>
     <!-- TODO: Remove or change this placeholder text -->
 
 </resources>

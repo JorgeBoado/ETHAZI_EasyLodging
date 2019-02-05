@@ -20,7 +20,7 @@ import easylodging.com.ethazi_easylodging.Main.NavigationDrawer;
 import easylodging.com.ethazi_easylodging.R;
 
 public class SignInManager extends AppCompatActivity {
-    private static final String TAG_LOGIN="Logueado";
+    private static final String TAG_LOGIN = "Logueado";
     private static final String TAG_SIGNIN = "Lanzando SignIn";
     private CheckBox cbx_TC;
     private TextView mName;
@@ -29,6 +29,7 @@ public class SignInManager extends AppCompatActivity {
     private TextView mEmail;
     private TextView mDni;
     private boolean nameV, passV, emailV, dniV, aceptado;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -36,8 +37,7 @@ public class SignInManager extends AppCompatActivity {
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
         setContentView(R.layout.activity_signin);
-        Button btn_SignIn= findViewById(R.id.signin_button);
-
+        Button btn_SignIn = findViewById(R.id.signin_button);
 
 
         cbx_TC = (CheckBox) findViewById(R.id.signin_chechbox);
@@ -52,83 +52,23 @@ public class SignInManager extends AppCompatActivity {
                 userSignIn();
             }
         });
+
+
         cbx_TC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder1 = new AlertDialog.Builder(SignInManager.this);
-                        builder1.setMessage(getString(R.string.dialog_logoff))
-                        .setCancelable(false)
-                        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                transactBack();
-                            }
-                        })
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .show();
-
-                if (!mName.getText().toString().equals("")) {
-                    nameV = true;
-                } else {
-                    nameV = false;
-                }
-                if (!mPassword.getText().toString().equals("") && mPassword.getText().toString().equals(mRepeatPassword.getText().toString())) {
-                    passV = true;
-                } else {
-                    passV = false;
-                }
-                if (validarEmail(mEmail.getText().toString())) {
-                    emailV = true;
-                } else {
-                    emailV = false;
-                }
-
-                if (validarNIF(mDni.getText().toString())) {
-                    dniV = true;
-                } else {
-                    dniV = false;
-                }
-
                 if (cbx_TC.isChecked()) {
-                    //userSignIn();
-                } else {
-                    builder1 = new AlertDialog.Builder(SignInManager.this);
-                    builder1.setMessage(R.string.not_accepted)
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(SignInManager.this);
+                    builder1.setMessage(R.string.dialog_logoff)
                             .setCancelable(false)
-
-
                             .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
-
-
+                                    cbx_TC.setChecked(true);
                                 }
                             })
-
-                            .show();
-                }
-                if (nameV && emailV && passV && dniV){
-                    userSignIn();
-                }else {
-
-                    String fatalError = "";
-
-                    if (!nameV) {
-                        fatalError += "Rellenar nombre/Fill name\n";
-                    }
-                    if (!emailV) {
-                        fatalError += "Comprobar email/Check email\n";
-                    }
-                    if (!passV) {
-                        fatalError += "Las contraseñas no son identicas/The passwords must be the same\n";
-                    }
-                    if (!dniV) {
-                        fatalError += "El dni no es valido/Your DNI is not valid\n";
-                    }
-
-                    builder1 = new AlertDialog.Builder(SignInManager.this);
-                    builder1.setMessage(fatalError)
-                            .setCancelable(false)
-                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                            .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
+                                    cbx_TC.setChecked(false);
                                 }
                             })
                             .show();
@@ -136,54 +76,81 @@ public class SignInManager extends AppCompatActivity {
             }
         });
 
+    }
 
-        cbx_TC.setOnClickListener(new View.OnClickListener()
+    private void validateUser() {
+        if (!mName.getText().toString().equals("")) {
+            nameV = true;
+        } else {
+            nameV = false;
+        }
+        if (!mPassword.getText().toString().equals("") && mPassword.getText().toString().equals(mRepeatPassword.getText().toString())) {
+            passV = true;
+        } else {
+            passV = false;
+        }
+        if (validarEmail(mEmail.getText().toString())) {
+            emailV = true;
+        } else {
+            emailV = false;
+        }
 
-    {
-        @Override
-        public void onClick (View v){
+        if (validarNIF(mDni.getText().toString())) {
+            dniV = true;
+        } else {
+            dniV = false;
+        }
+
         if (cbx_TC.isChecked()) {
-
-
-            AlertDialog.Builder builder1 = new AlertDialog.Builder(SignInManager.this);
-            builder1.setMessage(R.string.dialog_logoff)
+        } else {
+            AlertDialog.Builder builder1;
+            builder1 = new AlertDialog.Builder(SignInManager.this);
+            builder1.setMessage(R.string.not_accepted)
                     .setCancelable(false)
-
-
                     .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            transactBack();
-
                         }
                     })
-                    .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            cbx_TC.setChecked(false);
 
+                    .show();
+        }
+        if (nameV && emailV && passV && dniV) {
+            userSignIn();
+        } else {
+
+            String fatalError = "";
+
+            if (!nameV) {
+                fatalError += "Rellenar nombre/Fill name\n";
+            }
+            if (!emailV) {
+                fatalError += "Comprobar email/Check email\n";
+            }
+            if (!passV) {
+                fatalError += "Las contraseñas no son identicas/The passwords must be the same\n";
+            }
+            if (!dniV) {
+                fatalError += "El dni no es valido/Your DNI is not valid\n";
+            }
+            AlertDialog.Builder builder1;
+            builder1 = new AlertDialog.Builder(SignInManager.this);
+            builder1.setMessage(fatalError)
+                    .setCancelable(false)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
                         }
                     })
                     .show();
-
         }
-
-    }
-    });
-
-}
-    private void transactBack() {
-        //TODO falta implementar el codigo necesario
-    }
-    private void launchSignIn() {
-        Log.d(TAG_SIGNIN, "Lanzando SignIn");
-        Intent intent = new Intent(this, SignInManager.class);
-        startActivity(intent);
     }
 
     private void userSignIn() {
         Log.d(TAG_LOGIN, "Se ha clicado");
+        validateUser();
         Intent intent = new Intent(this, NavigationDrawer.class);
         startActivity(intent);
     }
+
     public static boolean validarNIF(String nif) {
 
         boolean correcto = false;

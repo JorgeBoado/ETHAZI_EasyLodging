@@ -1,6 +1,7 @@
 package easylodging.com.ethazi_easylodging.Main;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
@@ -8,14 +9,15 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import easylodging.com.ethazi_easylodging.Log.Activity.LogInManager;
 import easylodging.com.ethazi_easylodging.Main.Fragment.GridView;
-import easylodging.com.ethazi_easylodging.Main.Fragment.Search;
 import easylodging.com.ethazi_easylodging.R;
 
 public class NavigationDrawer extends AppCompatActivity
@@ -91,28 +93,43 @@ public class NavigationDrawer extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.nav_bookings) {
+        if (id == R.id.nav_list) {
+            Toast.makeText(this, getString(R.string.nav_grid_item), Toast.LENGTH_LONG).show();
+        } else if (id == R.id.nav_bookings) {
 
         } else if (id == R.id.nav_search) {
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+            /*FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
             Search mSearch = new Search();
             fragmentTransaction.add(R.id.search_fragment, mSearch, null);
-            fragmentTransaction.commit();
+            fragmentTransaction.commit();*/
         } else if (id == R.id.nav_map) {
             //TODO Jon, mete aqui tu intent para le mapa.
+        } else if (id == R.id.nav_language) {
+            changeLanguage();
         } else if (id == R.id.nav_dark_mode) {
 
         } else if (id == R.id.nav_info) {
-
+            launchAbout();
         } else if (id == R.id.nav_logout) {
             Intent intent_log = new Intent(this, LogInManager.class);
             startActivity(intent_log);
-            finishAndRemoveTask();
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void launchAbout() {
+        AlertDialog.Builder builder1 = new AlertDialog.Builder(this);
+        builder1.setMessage(getString(R.string.dialog_about))
+                .setCancelable(true)
+                .setNegativeButton(android.R.string.cancel, null)
+                .show();
+    }
+
+    private void changeLanguage() {
+        Toast.makeText(this, getString(R.string.nav_grid_item), Toast.LENGTH_LONG).show();
     }
 }

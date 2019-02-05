@@ -40,4 +40,5 @@
     <string name="action_booking">Reservar</string>
     <string name="title_activity_lodging_details">Detalles</string>
     <string name="not_accepted">No aceptado</string>
+    <string name="dialog_about">Este es el dialog de informacion.</string>
 </resources>

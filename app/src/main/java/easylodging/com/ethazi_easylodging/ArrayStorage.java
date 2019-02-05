@@ -46,7 +46,6 @@ public class ArrayStorage {
             }else{
                 lodging.setType("Casas Rurales");
             }
-
         }
 
 
