@@ -2,7 +2,7 @@ package easylodging.com.ethazi_easylodging.Main.Model;
 
 import java.io.Serializable;
 
-public class Boooking implements Serializable {
+public class Booking implements Serializable {
     private String id;
     private String id_lodging;
     private String id_user;
@@ -10,10 +10,10 @@ public class Boooking implements Serializable {
     private String check_out;
     private String status;
 
-    public Boooking() {
+    public Booking() {
     }
 
-    public Boooking(String id, String id_lodging, String id_user, String check_in, String check_out, String status) {
+    public Booking(String id, String id_lodging, String id_user, String check_in, String check_out, String status) {
         this.id = id;
         this.id_lodging = id_lodging;
         this.id_user = id_user;

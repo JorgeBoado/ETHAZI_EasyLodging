@@ -38,4 +38,6 @@
     <string name="tc_message_text">Tenemos un 5 el proyecto</string>
     <string name="navigation_drawer_search_text">Buscar</string>
     <string name="action_booking">Reservar</string>
+    <string name="title_activity_lodging_details">Detalles</string>
+    <string name="not_accepted">No aceptado</string>
 </resources>

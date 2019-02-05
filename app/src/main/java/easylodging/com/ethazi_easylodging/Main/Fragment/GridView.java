@@ -2,9 +2,9 @@ package easylodging.com.ethazi_easylodging.Main.Fragment;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import easylodging.com.ethazi_easylodging.ArrayStorage;
 import easylodging.com.ethazi_easylodging.LodgingDetails.LodgingDetails;
 import easylodging.com.ethazi_easylodging.Main.Model.Lodging;
 import easylodging.com.ethazi_easylodging.R;
@@ -22,7 +23,28 @@ import easylodging.com.ethazi_easylodging.R;
 public class GridView extends Fragment {
     private RecyclerView mLodgingRecyclerView;
     private Context mContext = getContext();
+    private ArrayStorage mArrayStorage= ArrayStorage.getInstance();
+    private List<Lodging> mLodgings = mArrayStorage.getLodgings();
+    private LodgingAdapter mAdapter;
 
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View v = inflater.inflate(R.layout.fragment_grid_view, container, false);
+
+        updateUI();
+        return v;
+    }
+
+    private void updateUI() {
+        if(mAdapter==null){
+            mAdapter = new LodgingAdapter(mLodgings);
+            mLodgingRecyclerView.setAdapter(mAdapter);
+        }else{
+            mAdapter.notifyDataSetChanged();
+        }
+    }
 
     private class LodgingHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
@@ -46,6 +68,7 @@ public class GridView extends Fragment {
         }
 
         public void bind(Lodging lodging) {
+            mLodging=lodging;
             mLodgingName.setText(lodging.getName());
 
             switch (lodging.getType()) {
@@ -65,11 +88,11 @@ public class GridView extends Fragment {
         }
     }
 
-    private class LodgingAdapter extends RecyclerView.Adapter<LodgingHolder>{
+    private class LodgingAdapter extends RecyclerView.Adapter<LodgingHolder> {
         private List<Lodging> mLodgingList;
 
         public LodgingAdapter(List<Lodging> lodgings) {
-            mLodgingList=lodgings;
+            mLodgingList = lodgings;
         }
 
         @NonNull
@@ -91,8 +114,12 @@ public class GridView extends Fragment {
 
         @Override
         public int getItemViewType(int position) {
-            return super.getItemViewType(position);
+            return R.layout.fragment_grid_item;
         }
+    }
+
+    public void onResume() {
+        super.onResume();
     }
 
 }

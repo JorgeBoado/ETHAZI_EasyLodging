@@ -47,6 +47,9 @@
     <string name="tc_message_text">We have 5 on the proyect</string>
     <string name="general_error" translatable="false">ERROR</string>
     <string name="navigation_drawer_search_text">Search</string>
+    <string name="action_booking">Book</string>
+    <string name="title_activity_lodging_details">Details</string>
+    <string name="not_accepted">Not Accepted</string>
     <!-- TODO: Remove or change this placeholder text -->
 
 </resources>

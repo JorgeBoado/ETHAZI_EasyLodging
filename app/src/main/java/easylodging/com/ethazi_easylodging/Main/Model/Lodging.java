@@ -2,6 +2,7 @@ package easylodging.com.ethazi_easylodging.Main.Model;
 
 public class Lodging {
 
+    private int id;
     private String name;
     private String coor;
     private String type;
@@ -16,9 +17,10 @@ public class Lodging {
     private int capacity;
     private String friendlyurl;
 
-    public Lodging(String name, String coor, String type, String description, String phone,
+    public Lodging(int id, String name, String coor, String type, String description, String phone,
                    String address, String marks, String postalcode, String category,
                    String turismemail, String web, int capacity, String friendlyurl) {
+        this.id=id;
         this.name = name;
         this.coor = coor;
         this.type = type;
@@ -34,6 +36,14 @@ public class Lodging {
         this.friendlyurl = friendlyurl;
     }
     public Lodging(){}
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getType() {
         return type;
