@@ -1,85 +1,98 @@
 package easylodging.com.ethazi_easylodging.Main.Fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.List;
+
+import easylodging.com.ethazi_easylodging.LodgingDetails.LodgingDetails;
+import easylodging.com.ethazi_easylodging.Main.Model.Lodging;
 import easylodging.com.ethazi_easylodging.R;
 
 public class GridView extends Fragment {
-    private RecyclerView mGridRecicler;
+    private RecyclerView mLodgingRecyclerView;
+    private Context mContext = getContext();
 
 
-    private OnFragmentInteractionListener mListener;
+    private class LodgingHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    public GridView() {
-        // Required empty public constructor
-    }
+        private Lodging mLodging;
+        private ImageView mImageView;
+        private TextView mLodgingName;
 
-    // TODO: Rename and change types and number of parameters
-    public static GridView newInstance(String param1, String param2) {
-        GridView fragment = new GridView();
-        Bundle args = new Bundle();
-        fragment.setArguments(args);
-        return fragment;
-    }
+        public LodgingHolder(LayoutInflater inflater, ViewGroup parent, int viewType) {
+            super(inflater.inflate(viewType, parent, false));
+            itemView.setOnClickListener(this);
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
+            mImageView = itemView.findViewById(R.id.grid_item_image);
+            mLodgingName = itemView.findViewById(R.id.grid_item_name);
+        }
+
+
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(mContext, LodgingDetails.class);
+            startActivity(intent);
+        }
+
+        public void bind(Lodging lodging) {
+            mLodgingName.setText(lodging.getName());
+
+            switch (lodging.getType()) {
+                case "Albergues":
+                    mImageView.setImageResource(R.drawable.ic_cottage);
+                    break;
+                case "Agroturismos":
+                    mImageView.setImageResource(R.drawable.ic_farm);
+                    break;
+                case "Campings":
+                    mImageView.setImageResource(R.drawable.ic_camping);
+                    break;
+                case "Casas Rurales":
+                    mImageView.setImageResource(R.drawable.ic_hostal);
+                    break;
+            }
         }
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        TextView textView = new TextView(getActivity());
-        textView.setText(R.string.hello_blank_fragment);
-        return textView;
-    }
+    private class LodgingAdapter extends RecyclerView.Adapter<LodgingHolder>{
+        private List<Lodging> mLodgingList;
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+        public LodgingAdapter(List<Lodging> lodgings) {
+            mLodgingList=lodgings;
+        }
+
+        @NonNull
+        @Override
+        public LodgingHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+            LayoutInflater layoutInflater = LayoutInflater.from(mContext);
+            return new LodgingHolder(layoutInflater, viewGroup, i);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull LodgingHolder holder, int position) {
+            holder.bind(mLodgingList.get(position));
+        }
+
+        @Override
+        public int getItemCount() {
+            return mLodgingList.size();
+        }
+
+        @Override
+        public int getItemViewType(int position) {
+            return super.getItemViewType(position);
         }
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
-    }
 }
