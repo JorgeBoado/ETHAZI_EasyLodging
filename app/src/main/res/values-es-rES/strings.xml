@@ -37,4 +37,6 @@
     <string name="tc_title_text">Terminos y condiciones</string>
     <string name="tc_message_text">Tenemos un 5 el proyecto</string>
     <string name="navigation_drawer_search_text">Buscar</string>
+    <string name="not_accepted"></string>
+
 </resources>
