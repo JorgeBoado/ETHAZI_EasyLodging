@@ -67,6 +67,8 @@ public class ArrayStorage {
         return mLodgings;
     }
 
+    public int getSize(){return mLodgings.size();}
+
     //TODO registro de usuario
     public boolean signInUser(User user) {
         return false;

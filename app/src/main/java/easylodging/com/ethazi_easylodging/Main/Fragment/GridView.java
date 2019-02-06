@@ -17,7 +17,6 @@ import android.widget.TextView;
 import java.util.List;
 
 import easylodging.com.ethazi_easylodging.ArrayStorage;
-import easylodging.com.ethazi_easylodging.LodgingDetails.LodgingDetails;
 import easylodging.com.ethazi_easylodging.Main.Model.Lodging;
 import easylodging.com.ethazi_easylodging.R;
 
@@ -31,16 +30,15 @@ public class GridView extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_grid_view, container, false);
-        if(mLodgings==null){
-            mArrayStorage= ArrayStorage.getInstance();
-            mLodgings=mArrayStorage.getLodgings();
+        if (mLodgings == null) {
+            mArrayStorage = ArrayStorage.getInstance();
+            mLodgings = mArrayStorage.getLodgings();
         }
         mLodgingRecyclerView = v.findViewById(R.id.grid_fragment);
         mLodgingRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
@@ -49,10 +47,10 @@ public class GridView extends Fragment {
     }
 
     private void updateUI() {
-        if(mAdapter==null){
+        if (mAdapter == null) {
             mAdapter = new LodgingAdapter(mLodgings);
             mLodgingRecyclerView.setAdapter(mAdapter);
-        }else{
+        } else {
             mAdapter.notifyDataSetChanged();
         }
     }
@@ -79,7 +77,7 @@ public class GridView extends Fragment {
         }
 
         public void bind(Lodging lodging) {
-            mLodging=lodging;
+            mLodging = lodging;
             mLodgingName.setText(lodging.getName());
 
             switch (lodging.getType()) {
