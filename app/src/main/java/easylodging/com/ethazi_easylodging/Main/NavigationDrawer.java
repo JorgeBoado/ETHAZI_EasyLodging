@@ -170,9 +170,9 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
 
         refresh();
     }
-    /*public void changeLanguage(String lang) {
+    public void changeLanguage(String lang) {
         changeLanguage(lang, false);
-    }*/
+    }
     private void refresh() {
         Intent intent = new Intent(this, NavigationDrawer.class);
         intent.putExtra(EXTRA_LANG, LANG_CURRENT);
