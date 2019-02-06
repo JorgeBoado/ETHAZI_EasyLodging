@@ -111,6 +111,7 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
         int id = item.getItemId();
         if (id == R.id.nav_list) {
             Toast.makeText(this, getString(R.string.nav_grid_item), Toast.LENGTH_LONG).show();
+            launchGrid();
         } else if (id == R.id.nav_bookings) {
 
         } else if (id == R.id.nav_search) {
@@ -185,5 +186,9 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
     protected void onDestroy() {
         super.onDestroy();
         getIntent().removeExtra(EXTRA_UPDATED);
+    }
+
+    public void launchGrid(){
+
     }
 }
