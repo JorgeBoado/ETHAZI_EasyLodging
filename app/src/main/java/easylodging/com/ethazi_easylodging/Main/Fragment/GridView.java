@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,16 +24,26 @@ import easylodging.com.ethazi_easylodging.R;
 public class GridView extends Fragment {
     private RecyclerView mLodgingRecyclerView;
     private Context mContext = getContext();
-    private ArrayStorage mArrayStorage= ArrayStorage.getInstance();
-    private List<Lodging> mLodgings = mArrayStorage.getLodgings();
+    private ArrayStorage mArrayStorage;
+    private List<Lodging> mLodgings;
     private LodgingAdapter mAdapter;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+    }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_grid_view, container, false);
-
+        if(mLodgings==null){
+            mArrayStorage= ArrayStorage.getInstance();
+            mLodgings=mArrayStorage.getLodgings();
+        }
+        mLodgingRecyclerView = v.findViewById(R.id.grid_fragment);
+        mLodgingRecyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
         updateUI();
         return v;
     }
@@ -98,7 +109,7 @@ public class GridView extends Fragment {
         @NonNull
         @Override
         public LodgingHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-            LayoutInflater layoutInflater = LayoutInflater.from(mContext);
+            LayoutInflater layoutInflater = LayoutInflater.from(getContext());
             return new LodgingHolder(layoutInflater, viewGroup, i);
         }
 

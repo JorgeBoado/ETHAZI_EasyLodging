@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -57,15 +59,14 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        if (findViewById(R.id.grid_fragment) != null) {
-            if (savedInstanceState != null) {
-                return;
-            }
-            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            GridView mGridView = new GridView();
-            fragmentTransaction.add(R.id.grid_fragment, mGridView, null);
-            fragmentTransaction.commit();
+        FragmentManager fm = getSupportFragmentManager();
+        Fragment fragment = fm.findFragmentById(R.id.fragment_container);
+
+        if(fragment == null){
+            fragment = new GridView();
+            fm.beginTransaction().add(R.id.fragment_container, fragment).commit();
         }
+
         mUpdated = false;
         LANG_CURRENT = getIntent().getStringExtra(EXTRA_LANG);
 
@@ -109,10 +110,7 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        if (id == R.id.nav_list) {
-            Toast.makeText(this, getString(R.string.nav_grid_item), Toast.LENGTH_LONG).show();
-            launchGrid();
-        } else if (id == R.id.nav_bookings) {
+        if (id == R.id.nav_bookings) {
 
         } else if (id == R.id.nav_search) {
             /*FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
@@ -153,7 +151,6 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
     }
 
     private void changeLanguage(String lang, boolean updated) {
-        Toast.makeText(this, lang, Toast.LENGTH_LONG).show();
         if(lang.equals(LANG_EN)) {
             lang = LANG_ES;
         }else {
@@ -168,6 +165,7 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
 
         LANG_CURRENT = lang;
         mUpdated = updated;
+        Toast.makeText(this, lang, Toast.LENGTH_LONG).show();
 
         refresh();
     }

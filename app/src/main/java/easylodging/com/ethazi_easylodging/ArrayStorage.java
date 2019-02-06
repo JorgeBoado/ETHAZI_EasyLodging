@@ -24,7 +24,7 @@ public class ArrayStorage {
 
     private ArrayStorage() {
         mBookings = new ArrayList<>();
-        mLodgings = new ArrayList<>();
+        mLodgings = lodgingCreator();
         mPostalCodes = new ArrayList<>();
         mUser = new User();
 
@@ -33,6 +33,7 @@ public class ArrayStorage {
     //TODO Eliminar metodo para fuera de pruebas
     //Genera alojamientos aleatorios
     private List lodgingCreator() {
+        List<Lodging> lodgings = new ArrayList<>();
         for (int i = 0; i < 50; i++) {
             Lodging lodging = new Lodging();
             lodging.setId(i);
@@ -46,10 +47,11 @@ public class ArrayStorage {
             }else{
                 lodging.setType("Casas Rurales");
             }
+            lodgings.add(lodging);
         }
 
 
-        return mLodgings;
+        return lodgings;
     }
 
     private Lodging getLodging(int id) {
@@ -79,4 +81,5 @@ public class ArrayStorage {
     public boolean deleteBooking(Booking booking) {
         return false;
     }
+
 }
