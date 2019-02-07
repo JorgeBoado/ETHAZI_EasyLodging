@@ -17,7 +17,9 @@ import android.widget.TextView;
 import java.util.List;
 
 import easylodging.com.ethazi_easylodging.ArrayStorage;
+import easylodging.com.ethazi_easylodging.Main.LodgingActivity;
 import easylodging.com.ethazi_easylodging.Main.Model.Lodging;
+import easylodging.com.ethazi_easylodging.Main.NavigationDrawer;
 import easylodging.com.ethazi_easylodging.R;
 
 public class GridView extends Fragment {
@@ -72,7 +74,7 @@ public class GridView extends Fragment {
 
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent(mContext, LodgingDetails.class);
+            Intent intent = LodgingActivity.newIntent(getActivity(), mLodging.getId());
             startActivity(intent);
         }
 

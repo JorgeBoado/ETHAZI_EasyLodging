@@ -52,6 +52,18 @@
     <string name="not_accepted">Not Accepted</string>
     <string name="nav_grid_item" translatable="false">Grid</string>
     <string name="dialog_about">This is the about dialog.</string>
+    <string name="future_implementation">Not funcional</string>
+    <string name="lodging_booking_button">Book</string>
+    <string name="lodging_name">Name</string>
+    <string name="lodging_type">Type</string>
+    <string name="lodging_capacity_text">Capacity:</string>
+    <string name="lodging_category">Category:</string>
+    <string name="lodging_territory" translatable="false">Territory</string>
+    <string name="lodging_address" translatable="false">Address</string>
+    <string name="lodging_web" translatable="false">Web</string>
+    <string name="lodging_mail" translatable="false">Email</string>
+    <string name="lodging_phone" translatable="false">Phone</string>
+    <string name="lodging_description" translatable="false">Description</string>
     <!-- TODO: Remove or change this placeholder text -->
 
 </resources>

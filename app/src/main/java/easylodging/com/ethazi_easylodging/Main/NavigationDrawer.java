@@ -37,10 +37,11 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
 
     private static final String EXTRA_LANG = "currrent_language";
     private static final String EXTRA_UPDATED = "language_updated";
+    private static final String EXTRA_LODGING_ID = "com.ethazi_easylodging.Main.lodging_id";
 
-    public static Intent newIntent(Context context) {
-        Intent intent = new Intent();
-
+    public static Intent newIntent(Context context, int id) {
+        Intent intent = new Intent(context, NavigationDrawer.class);
+        intent.putExtra(EXTRA_LODGING_ID, id);
         return intent;
     }
 
@@ -99,6 +100,7 @@ public class NavigationDrawer extends AppCompatActivity implements NavigationVie
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Toast.makeText(this, R.string.future_implementation, Toast.LENGTH_LONG).show();
             return true;
         }
 

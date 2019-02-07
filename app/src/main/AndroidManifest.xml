@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme.NoActionBar"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".LodgingDetails.LodgingDetails"
+            android:name=".Main.LodgingActivity"
             android:label="@string/title_activity_lodging_details"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar.NoActionBar" />

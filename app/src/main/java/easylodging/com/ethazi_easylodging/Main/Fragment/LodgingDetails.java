@@ -27,12 +27,13 @@ public class LodgingDetails extends Fragment {
     private TextView mMail;
     private TextView mPhone;
     private TextView mDescription;
+    private TextView mBookButton;
 
-    private static final String ARG_LODGING_ID = "Lodging id";
+    private static final String ARG_LODGING_ID = "lodging_id";
 
     public static LodgingDetails newInstance(int id) {
         Bundle args = new Bundle();
-        args.putSerializable(ARG_LODGING_ID, id);
+        args.putInt(ARG_LODGING_ID, id);
 
         LodgingDetails fragment = new LodgingDetails();
         fragment.setArguments(args);
@@ -42,7 +43,7 @@ public class LodgingDetails extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        int id = (int) getArguments().getSerializable(ARG_LODGING_ID);
+        int id = (int) getArguments().getInt(ARG_LODGING_ID);
         mLodging = searchLoadging(id);
 
     }
@@ -50,7 +51,7 @@ public class LodgingDetails extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View v = super.onCreateView(inflater, container, savedInstanceState);
+        View v = inflater.inflate(R.layout.fragment_lodging_details, container, false);
 
         mImageView = v.findViewById(R.id.lodging_icon_image);
         switch (mLodging.getType()) {
@@ -74,16 +75,11 @@ public class LodgingDetails extends Fragment {
         mType = v.findViewById(R.id.lodging_type_textview);
         mType.setText(mLodging.getType());
 
-        mCapacity = v.findViewById(R.id.lodging_capacity_textview);
-        mCapacity.setText(mLodging.getCapacity());
+        mCapacity = v.findViewById(R.id.lodging_capacity_number_textview);
+        mCapacity.setText(String.valueOf(mLodging.getCapacity()));
 
-        mCategory = v.findViewById(R.id.lodging_category_textview);
-        mCategory.setText(mLodging.getCapacity());
-
-        mMunicipality = v.findViewById(R.id.lodging_municipality_textview);
-
-        //TODO Municipality
-        //mMunicipality.setText(mLodging.getMu);
+        mCategory = v.findViewById(R.id.lodging_category_letter_textview);
+        mCategory.setText(mLodging.getCategory());
 
         mAddress = v.findViewById(R.id.lodging_address_textview);
         mAddress.setText(mLodging.getAddress());
@@ -95,11 +91,18 @@ public class LodgingDetails extends Fragment {
         mMail.setText(mLodging.getTurismemail());
 
         mPhone = v.findViewById(R.id.lodging_phone_textview);
-        mPhone.setText(mLodging.getPhone());
+        mPhone.setText("+34-"+mLodging.getPhone());
 
         mDescription = v.findViewById(R.id.lodging_description_textview);
         mDescription.setText(mLodging.getDescription());
 
+        mBookButton =v.findViewById(R.id.lodging_booking_button);
+        mBookButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO Aritz mete aqui lo del date picker.
+            }
+        });
 
         return v;
     }

@@ -41,4 +41,10 @@
     <string name="title_activity_lodging_details">Detalles</string>
     <string name="not_accepted">No aceptado</string>
     <string name="dialog_about">Este es el dialog de informacion.</string>
+    <string name="future_implementation">Sin funcionalidad</string>
+    <string name="lodging_booking_button">Reservar</string>
+    <string name="lodging_name">Name</string>
+    <string name="lodging_type">Tipo</string>
+    <string name="lodging_capacity_text">"Capacidad: "</string>
+    <string name="lodging_category">"Categoria: "</string>
 </resources>
